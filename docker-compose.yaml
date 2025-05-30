@@ -1,0 +1,31 @@
+services:
+  minecraft:
+    image: itzg/minecraft-server
+    tty: true
+    stdin_open: true
+    ports:
+      - "25565:25565"
+    env_file:
+      - minecraft.env
+    environment:
+      EULA: "TRUE"
+      INIT_MEMORY: 4G
+      MAX_MEMORY: 14G
+      ENABLE_ROLLING_LOGS: true
+      VERSION: "1.21.1"
+      TYPE: NEOFORGE
+      SERVER_NAME: "Insula Voxum"
+      MOTD: "Slay"
+      DIFFICULTY: normal
+      ICON: "server-icon.jpg"
+      OVERRIDE_ICON: true
+      MAX_PLAYERS: 8
+      FORCE_GAMEMODE: true
+      SPAWN_PROTECTION: 4
+      MODE: survival
+      VIEW_DISTANCE: 24
+      ENABLE_WHITELIST: true
+    volumes:
+      # attach the relative directory 'data' to the container's /data path
+      - ./data:/data
+
