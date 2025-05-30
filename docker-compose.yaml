@@ -39,14 +39,13 @@ services:
     volumes:
       - type: volume
         source: minecraft-data
-        target: /app/data
-        read_only: true
-      - type: volume
-        source: minecraft-data
         target: /app/world
         read_only: true
         volume:
           subpath: world
+      - type: volume
+        source: bluemap-data
+        target: /app/data
       - type: volume
         source: bluemap-config
         target: /app/config
@@ -60,16 +59,22 @@ volumes:
       o: bind
       type: none
       device: ./data/minecraft
-  bluemap-web:
-    driver: local
-    driver_opts:
-      o: bind
-      type: none
-      device: ./data/bluemap-web
   bluemap-config:
     driver: local
     driver_opts:
       o: bind
       type: none
       device: ./data/bluemap-config
+  bluemap-web:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ./data/bluemap-web
+  bluemap-data:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ./data/bluemap-data
 
