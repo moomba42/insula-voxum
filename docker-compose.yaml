@@ -64,17 +64,17 @@ volumes:
     driver_opts:
       o: bind
       type: none
-      device: ./data/bluemap-config
+      device: ./data/bluemap/config
   bluemap-web:
     driver: local
     driver_opts:
       o: bind
       type: none
-      device: ./data/bluemap-web
+      device: ./data/bluemap/web
   bluemap-data:
     driver: local
     driver_opts:
       o: bind
       type: none
-      device: ./data/bluemap-data
+      device: ./data/bluemap/data
 
