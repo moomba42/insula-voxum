@@ -26,6 +26,50 @@ services:
       VIEW_DISTANCE: 24
       ENABLE_WHITELIST: true
     volumes:
-      # attach the relative directory 'data' to the container's /data path
-      - ./data:/data
+      - type: volume
+        source: minecraft-data
+        target: /data
+  bluemap:
+    image: ghcr.io/bluemap-minecraft/bluemap:v5.7
+    command: -r -u -w
+    ports:
+      - "8100:8100"
+    depends_on:
+      - minecraft
+    volumes:
+      - type: volume
+        source: minecraft-data
+        target: /app/data
+        read_only: true
+      - type: volume
+        source: minecraft-data
+        target: /app/world
+        read_only: true
+        volume:
+          subpath: world
+      - type: volume
+        source: bluemap-config
+        target: /app/config
+      - type: volume
+        source: bluemap-web
+        target: /app/web
+volumes:
+  minecraft-data:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ./data/minecraft
+  bluemap-web:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ./data/bluemap-web
+  bluemap-config:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ./data/bluemap-config
 
