@@ -1,4 +1,8 @@
 .idea
 
 minecraft.env
-data
+data/minecraft
+data/bluemap/data
+data/bluemap/web
+data/bluemap/config/packs
+data/bluemap/config/storages
