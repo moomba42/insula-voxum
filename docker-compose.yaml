@@ -16,7 +16,7 @@ services:
       ENABLE_ROLLING_LOGS: true
       VERSION: "1.21.1"
       TYPE: NEOFORGE
-      NEOFORGE_VERSION: 21.1.213
+      NEOFORGE_VERSION: 21.1.216
       SERVER_NAME: "Insula Voxum"
       MOTD: "Slay"
       DIFFICULTY: normal
