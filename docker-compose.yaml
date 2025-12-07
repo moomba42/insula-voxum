@@ -14,9 +14,6 @@ services:
       MAX_MEMORY: 14G
       JVM_XX_OPTS: "-XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -XX:ParallelGCThreads=6 -XX:+PerfDisableSharedMem -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+UseZGC"
       ENABLE_ROLLING_LOGS: true
-      VERSION: "1.21.1"
-      TYPE: NEOFORGE
-      NEOFORGE_VERSION: 21.1.216
       SERVER_NAME: "Insula Voxum"
       MOTD: "Slay"
       DIFFICULTY: normal
@@ -28,6 +25,11 @@ services:
       MODE: survival
       VIEW_DISTANCE: 24
       ENABLE_WHITELIST: true
+      TYPE: "MODRINTH"
+      VERSION: "1.21.1" # Minecraft version
+      MODRINTH_LOADER: "neoforge"
+      MODRINTH_MODPACK: "Lci3ck6y" # Modpack id
+      MODRINTH_VERSION: "44JsC4Ph" # Modpack version id
     volumes:
       - type: volume
         source: minecraft-data
