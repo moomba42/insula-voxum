@@ -5,15 +5,18 @@ services:
     stdin_open: true
     ports:
       - "25565:25565"
+      - "24454:24454/udp"
     env_file:
       - minecraft.env
     environment:
       EULA: "TRUE"
       INIT_MEMORY: 4G
       MAX_MEMORY: 14G
+      JVM_XX_OPTS: "-XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -XX:ParallelGCThreads=6 -XX:+PerfDisableSharedMem -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+UseZGC"
       ENABLE_ROLLING_LOGS: true
       VERSION: "1.21.1"
       TYPE: NEOFORGE
+      NEOFORGE_VERSION: 21.1.213
       SERVER_NAME: "Insula Voxum"
       MOTD: "Slay"
       DIFFICULTY: normal
@@ -30,7 +33,7 @@ services:
         source: minecraft-data
         target: /data
   bluemap:
-    image: ghcr.io/bluemap-minecraft/bluemap:v5.7
+    image: ghcr.io/bluemap-minecraft/bluemap:v5.13
     command: -r -u -w
     ports:
       - "8100:8100"
